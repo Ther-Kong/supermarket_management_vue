@@ -14,7 +14,9 @@
 				</el-row>
 			</el-header>
 			<el-main style="height: 100%;padding: 0;">
-				<GoodsList></GoodsList>
+				<transition mode="out-in">
+					<component :is="comName"></component>
+				</transition>
 			</el-main>
 		</el-container>
 	</el-container>
@@ -24,10 +26,15 @@
 import NavMenu from '../components/NavMenu.vue';
 import GoodsList from '../components/GoodsList.vue';
 export default {
-	name: 'Goods',
+	name: 'MainPage',
 	components: {
 		NavMenu,
 		GoodsList
+	},
+	data(){
+		return{
+			comName:"GoodsList"
+		}
 	}
 };
 </script>

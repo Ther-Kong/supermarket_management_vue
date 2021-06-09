@@ -98,7 +98,7 @@ export default {
 					if(res.data.code==200&&res.data.data!=null){
 						proxy.$store.state.token = res.data.data;
 						console.log("token"+proxy.$store.state.token)
-						proxy.$router.push('/goods')
+						proxy.$router.push('/mainpage')
 						console.log("设置token")
 						console.log("跳转置首页")
 					}else{

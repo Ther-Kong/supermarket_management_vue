@@ -2,7 +2,7 @@
 		<el-row class="tac">
 			<el-col :span="24">
 				<el-menu :uniqueOpened="true"
-					default-active="2"
+					default-active="1"
 					class="el-menu-vertical-demo"
 					@open="handleOpen"
 					@close="handleClose"
@@ -35,6 +35,9 @@
 <script>
 import { getCurrentInstance } from 'vue';
 export default {
+	props:{
+		
+	},
 	setup() {
 		const { proxy } = getCurrentInstance(); // 使用proxy代替ctx，因为ctx只在开发环境有效
 		console.log(proxy.$axios); // 路由信息

@@ -4,7 +4,7 @@ import {
 } from 'vue-router'
 import Home from '../views/Home.vue'
 import Login from '../views/Login.vue'
-import Goods from '../views/Goods.vue'
+import MainPage from '../views/MainPage.vue'
 import Changepass from '../views/ChangePass.vue'
 const routes = [{
 		path: '/',
@@ -30,9 +30,9 @@ const routes = [{
 		component: Changepass
 	},
 	{
-		path: '/goods',
-		name: 'Goods',
-		component: Goods
+		path: '/mainpage',
+		name: 'MainPage',
+		component: MainPage
 	},
 ]
 

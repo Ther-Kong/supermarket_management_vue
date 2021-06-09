@@ -1,6 +1,6 @@
 <template>
 	<div>
-		<el-table :data="tableData" style="width: 100%;">
+		<el-table :data="goods" style="width: 100%;">
 			<el-table-column prop="id" label="编号" width="180"></el-table-column>
 			<el-table-column prop="name" label="名字" width="180"></el-table-column>
 			<el-table-column prop="purchase" label="进价"></el-table-column>
@@ -24,7 +24,7 @@ export default {
 	name: 'GoodsList',
 	data(){
 		return{
-			goods:""
+			goods:[]
 		}
 	},
 	setup() {
@@ -38,7 +38,7 @@ export default {
 	mounted() {
 		const { proxy } = getCurrentInstance();
 		proxy.$axios.get('api/goods/list').then(res => {
-				proxy.goods = res.data;
+				proxy.goods = res.data.data;
 				console.log("goods"+proxy.$store.state.token)
 				console.log(res.data)
 		})

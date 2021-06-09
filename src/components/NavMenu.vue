@@ -3,9 +3,8 @@
 			<el-col :span="24">
 				<el-menu :uniqueOpened="true"
 					default-active="1"
+					@select="select"
 					class="el-menu-vertical-demo"
-					@open="handleOpen"
-					@close="handleClose"
 					background-color="#545c64"
 					text-color="#fff"
 					active-text-color="#ffd04b">
@@ -34,24 +33,33 @@
 
 <script>
 import { getCurrentInstance } from 'vue';
+let proxy;
 export default {
 	props:{
 		
 	},
 	setup() {
-		const { proxy } = getCurrentInstance(); // 使用proxy代替ctx，因为ctx只在开发环境有效
-		console.log(proxy.$axios); // 路由信息
+		proxy = getCurrentInstance(); // 使用proxy代替ctx，因为ctx只在开发环境有效
+		console.log("proxy")
+		console.log(proxy); // 路由信息
 		// console.log(proxy.$systemName) // 全局挂载对象
 		return {
 			proxy
 		};
 	},
 	methods: {
-		handleOpen(key, keyPath) {
+		select(key, keyPath) {
 			console.log(key, keyPath);
-		},
-		handleClose(key, keyPath) {
-			console.log(key, keyPath);
+			let str = "";
+			if(key==1){
+				str = "GoodsList"
+			}else if(key==2){
+				str = "StoreList"
+			}else{
+				str = "Report"
+			}
+			console.log(str)
+			proxy.emit("changeCom",str)
 		}
 	}
 };

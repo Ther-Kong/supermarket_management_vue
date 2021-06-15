@@ -6,7 +6,7 @@
 			<el-header>
 				<el-row :span="24" type="flex" justify="end">
 					<el-col :span="4"><a>用户：啊啊啊啊</a></el-col>
-					<el-col :span="1"><a>退出</a></el-col>
+					<el-col :span="1"><a @click="quit">退出</a></el-col>
 				</el-row>
 			</el-header>
 			<el-main style="height: 100%;padding: 0;">
@@ -44,6 +44,14 @@ export default {
 		changeCom:function(msg){
 			console.log(proxy.data.comName)
 			proxy.data.comName = msg
+		},
+		quit(){
+			this.$store.state.token = ''
+			
+			console.log("token"+this.$store.state.token)
+			this.$router.push({
+				path:'/login',
+			})
 		}
 	}
 };

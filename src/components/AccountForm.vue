@@ -95,14 +95,15 @@ export default {
 			proxy.$axios.post('api/user/login',data).then(res => {
 				setTimeout(()=>{
 					proxy.closeFullScreen();
-					if(res.data.code==200&&res.data.data!=null){
-						proxy.$store.state.token = res.data.data;
+					if(res.data.code==200&&res.data.msg!=null){
+						proxy.$store.state.token = res.data.msg;
+						proxy.$store.state.user = res.data.data;
 						console.log("token"+proxy.$store.state.token)
 						proxy.$router.push('/mainpage')
 						console.log("设置token")
 						console.log("跳转置首页")
 					}else{
-						alert(res.data.data)
+						alert(res.data.msg)
 					}
 				},1000)
 			})

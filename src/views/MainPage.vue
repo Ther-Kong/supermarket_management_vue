@@ -20,6 +20,7 @@
 import NavMenu from '../components/NavMenu.vue';
 import GoodsList from '../components/GoodsList.vue';
 import Report from "../components/Report.vue"
+import StoreList from "../components/StoreList.vue"
 import { getCurrentInstance } from 'vue';
 let proxy;
 export default {
@@ -27,7 +28,8 @@ export default {
 	components: {
 		NavMenu,
 		GoodsList,
-		Report
+		Report,
+		StoreList
 	},
 	setup(){
 		proxy = getCurrentInstance();

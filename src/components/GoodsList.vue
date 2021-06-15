@@ -28,8 +28,14 @@
 				<el-form-item label="商品编号" prop="id"><el-input v-model="goodsInfo.id"></el-input></el-form-item>
 				<el-form-item label="商品名称" prop="name"><el-input v-model="goodsInfo.name"></el-input></el-form-item>
 				<el-form-item label="商品类别" prop="category"><el-input v-model="goodsInfo.category"></el-input></el-form-item>
-				<el-form-item label="商品进价" prop="purchase"><el-input v-model="goodsInfo.purchase"></el-input></el-form-item>
-				<el-form-item label="商品售价" prop="price"><el-input v-model="goodsInfo.price"></el-input></el-form-item>
+				<template v-if="proxy.goodsInfo.price===''||proxy.goodsInfo.price===null">
+					<el-form-item label="商品进价" prop="purchase"><el-input v-model="goodsInfo.purchase"></el-input></el-form-item>
+					<el-form-item label="商品售价" prop="price"><el-input v-model="goodsInfo.price"></el-input></el-form-item>
+				</template>
+				<template v-else>
+					<el-form-item label="商品进价" prop="purchase"><el-input v-model="goodsInfo.purchase" :disabled="true"></el-input></el-form-item>
+					<el-form-item label="商品售价" prop="price"><el-input v-model="goodsInfo.price" :disabled="true"></el-input></el-form-item>
+				</template>
 				<el-form-item label="保质期">
 					<el-col :span="10">
 						<el-form-item prop="dateStart">

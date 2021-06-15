@@ -6,6 +6,10 @@ import axios from 'axios'
 import ElementPlus from 'element-plus';
 import 'element-plus/lib/theme-chalk/index.css';
 import * as echarts from 'echarts'
+
+axios.defaults.retry = 4;
+axios.defaults.retryDelay = 1000;
+
 axios.interceptors.request.use(
   config =>{
     let token = store.state.token
